@@ -1,2 +1,2 @@
-pnpm run format
+pnpm run format:check
 pnpm run test
