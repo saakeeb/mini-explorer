@@ -1,4 +1,4 @@
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 
 export const STORAGE_KEY = "workspace-explorer:v1";
 

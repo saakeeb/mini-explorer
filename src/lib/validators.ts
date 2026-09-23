@@ -1,4 +1,4 @@
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 
 export interface ValidationResult {
   isValid: boolean;

@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Search, X, Folder, FileText } from "lucide-react";
-import { useSearch } from "@/src/hooks/useSearch";
+import { useSearch } from "@/hooks/useSearch";
 
 export function SearchBar() {
   const {

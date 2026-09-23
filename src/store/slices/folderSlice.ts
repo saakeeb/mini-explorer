@@ -3,12 +3,12 @@ import {
     deleteNode as deleteNodePure,
     insertNode as insertNodePure,
     renameNode as renameNodePure,
-} from "@/src/lib/tree";
+} from "@/lib/tree";
 import { FolderActions, WorkspaceSlice } from "../types";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { generateId } from "@/src/lib/ids";
-import { saveWorkspace } from "@/src/lib/persistence";
-import { ROOT_ID } from "@/src/lib/constants";
+import { WorkspaceNode } from "@/types/workspace";
+import { generateId } from "@/lib/ids";
+import { saveWorkspace } from "@/lib/persistence";
+import { ROOT_ID } from "@/lib/constants";
 
 export const createFolderSlice: WorkspaceSlice<
     FolderActions

@@ -11,9 +11,9 @@ import {
   Pencil,
   Trash2,
 } from "lucide-react";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { ROOT_ID } from "@/src/lib/constants";
+import { WorkspaceNode } from "@/types/workspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { ROOT_ID } from "@/lib/constants";
 
 interface TreeNodeProps {
   node: WorkspaceNode;

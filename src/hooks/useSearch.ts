@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { searchWorkspace } from "@/src/lib/search";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { searchWorkspace } from "@/lib/search";
 
 export function useSearch() {
   const root = useWorkspaceStore((state) => state.root);

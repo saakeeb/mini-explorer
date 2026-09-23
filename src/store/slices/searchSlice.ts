@@ -1,7 +1,7 @@
-import { findNode, findParent, getAncestors } from "@/src/lib/tree";
+import { findNode, findParent, getAncestors } from "@/lib/tree";
 import { SearchActions, WorkspaceSlice } from "../types";
-import { saveWorkspace } from "@/src/lib/persistence";
-import { ROOT_ID } from "@/src/lib/constants";
+import { saveWorkspace } from "@/lib/persistence";
+import { ROOT_ID } from "@/lib/constants";
 
 export const createSearchSlice: WorkspaceSlice<SearchActions> = (
     set,

@@ -3,9 +3,9 @@ import {
     findNode,
     findParent,
     getAncestors,
-} from "@/src/lib/tree";
-import { ROOT_ID } from "@/src/lib/constants";
-import { saveWorkspace } from "@/src/lib/persistence";
+} from "@/lib/tree";
+import { ROOT_ID } from "@/lib/constants";
+import { saveWorkspace } from "@/lib/persistence";
 
 export const createNavigationSlice: WorkspaceSlice<
     NavigationActions

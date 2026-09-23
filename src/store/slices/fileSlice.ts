@@ -1,12 +1,12 @@
-import { generateId } from "@/src/lib/ids";
-import { saveWorkspace } from "@/src/lib/persistence";
-import { WorkspaceNode } from "@/src/types/workspace";
+import { generateId } from "@/lib/ids";
+import { saveWorkspace } from "@/lib/persistence";
+import { WorkspaceNode } from "@/types/workspace";
 import { FileActions, WorkspaceSlice } from "../types";
 import {
     findNode,
     insertNode as insertNodePure,
     updateFileContent as updateFileContentPure,
-} from "@/src/lib/tree";
+} from "@/lib/tree";
 
 export const createFileSlice: WorkspaceSlice<FileActions> = (
     set,

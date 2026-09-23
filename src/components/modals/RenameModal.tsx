@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { findParent } from "@/src/lib/tree";
-import { validateNodeName } from "@/src/lib/validators";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { WorkspaceNode } from "@/types/workspace";
+import { findParent } from "@/lib/tree";
+import { validateNodeName } from "@/lib/validators";
 import { Modal } from "../ui/Modal";
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";

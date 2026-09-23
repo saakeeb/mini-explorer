@@ -1,8 +1,8 @@
 "use client";
 
 import { useEffect, useMemo, useRef } from "react";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { WorkspaceNode } from "@/types/workspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 import { EditorHeader } from "./EditorHeader";
 
 interface FileEditorProps {

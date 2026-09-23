@@ -7,9 +7,9 @@ import {
   FilePlus,
 } from "lucide-react";
 import { TreeNode } from "../explorer/TreeNode";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { ROOT_ID } from "@/src/lib/constants";
 import Image from "next/image";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { ROOT_ID } from "@/lib/constants";
 
 export function Sidebar() {
   const root = useWorkspaceStore((state) => state.root);

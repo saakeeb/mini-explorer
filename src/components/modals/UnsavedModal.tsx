@@ -1,6 +1,6 @@
 "use client";
 
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 import { Modal } from "../ui/Modal";
 import { Button } from "../ui/Button";
 

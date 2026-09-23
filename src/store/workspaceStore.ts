@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { ROOT_ID, INITIAL_WORKSPACE_SEED } from "@/src/lib/constants";
+import { ROOT_ID, INITIAL_WORKSPACE_SEED } from "@/lib/constants";
 import { WorkspaceStore } from "./types";
 
 import { createNavigationSlice } from "./slices/navigationSlice";

@@ -1,20 +1,20 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Breadcrumb } from "../ui/Breadcrumb";
-import { EmptyState } from "../explorer/EmptyState";
-import { FolderList } from "../explorer/FolderList";
-import { FileList } from "../explorer/FileList";
-import { FileEditor } from "../editor/FileEditor";
-import { CreateModal } from "../modals/CreateModal";
-import { RenameModal } from "../modals/RenameModal";
-import { DeleteModal } from "../modals/DeleteModal";
-import { UnsavedModal } from "../modals/UnsavedModal";
-import { ToastContainer } from "../ui/Toast";
-import { Sidebar } from "./Sidebar";
+import { EmptyState } from "@/components/explorer/EmptyState";
+import { FolderList } from "@/components/explorer/FolderList";
+import { FileList } from "@/components/explorer/FileList";
+import { FileEditor } from "@/components/editor/FileEditor";
+import { CreateModal } from "@/components/modals/CreateModal";
+import { RenameModal } from "@/components/modals/RenameModal";
+import { DeleteModal } from "@/components/modals/DeleteModal";
+import { UnsavedModal } from "@/components/modals/UnsavedModal";
+import { ToastContainer } from "@/components/ui/Toast";
 import { Toolbar } from "./Toolbar";
-import { useWorkspace } from "@/src/hooks/useWorkspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { useWorkspace } from "@/hooks/useWorkspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Sidebar } from "./Sidebar";
 
 export function Dashboard() {
   const {

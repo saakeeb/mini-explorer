@@ -7,8 +7,8 @@ import {
   Pencil,
   Trash2,
 } from "lucide-react";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { WorkspaceNode } from "@/types/workspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 interface ExplorerItemProps {
   node: WorkspaceNode;

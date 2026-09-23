@@ -1,4 +1,4 @@
-import { generateId } from "@/src/lib/ids";
+import { generateId } from "@/lib/ids";
 import { ToastActions, WorkspaceSlice } from "../types";
 
 export const createToastSlice: WorkspaceSlice<

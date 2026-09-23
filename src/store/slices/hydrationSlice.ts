@@ -1,7 +1,7 @@
-import { clearWorkspace, loadWorkspace } from "@/src/lib/persistence";
+import { clearWorkspace, loadWorkspace } from "@/lib/persistence";
 import { HydrationActions, WorkspaceSlice } from "../types";
-import { findNode, getAncestors } from "@/src/lib/tree";
-import { INITIAL_WORKSPACE_SEED, ROOT_ID } from "@/src/lib/constants";
+import { findNode, getAncestors } from "@/lib/tree";
+import { INITIAL_WORKSPACE_SEED, ROOT_ID } from "@/lib/constants";
 
 export const createHydrationSlice: WorkspaceSlice<
     HydrationActions

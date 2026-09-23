@@ -3,7 +3,7 @@ import {
     ActiveDialog,
     ToastMessage,
     WorkspaceNode,
-} from "@/src/types/workspace";
+} from "@/types/workspace";
 
 export interface WorkspaceState {
     // Tree

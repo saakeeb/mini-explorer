@@ -1,7 +1,7 @@
 "use client";
 
 import { CheckCircle2, AlertCircle, Info, X } from "lucide-react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 export function ToastContainer() {
   const toasts = useWorkspaceStore((state) => state.toasts);

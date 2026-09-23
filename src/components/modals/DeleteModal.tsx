@@ -1,9 +1,9 @@
 "use client";
 
 import { useMemo } from "react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { collectAllDescendantIds } from "@/src/lib/tree";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { WorkspaceNode } from "@/types/workspace";
+import { collectAllDescendantIds } from "@/lib/tree";
 import { Button } from "../ui/Button";
 import { Modal } from "../ui/Modal";
 

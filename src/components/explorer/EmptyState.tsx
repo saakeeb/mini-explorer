@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import { FolderPlus, FilePlus, Folder } from "lucide-react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 import { Button } from "../ui/Button";
 
 interface EmptyStateProps {
