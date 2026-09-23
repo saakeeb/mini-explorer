@@ -7,7 +7,12 @@ import {
   deleteNode,
   updateFileContent,
 } from "../tree";
-import { INITIAL_WORKSPACE_SEED, ROOT_ID, WEBBLY_ID, NOTES_TXT_ID } from "../constants";
+import {
+  INITIAL_WORKSPACE_SEED,
+  ROOT_ID,
+  WEBBLY_ID,
+  NOTES_TXT_ID,
+} from "../constants";
 import { WorkspaceNode } from "@/types/workspace";
 import { searchWorkspace } from "../search";
 
@@ -50,7 +55,9 @@ describe("Workspace Tree Utilities", () => {
 
     expect(webblyBefore?.children).toHaveLength(2);
     expect(webblyAfter?.children).toHaveLength(3);
-    expect(webblyAfter?.children?.some((c) => c.name === "design.css")).toBe(true);
+    expect(webblyAfter?.children?.some((c) => c.name === "design.css")).toBe(
+      true,
+    );
   });
 
   it("renameNode immutably updates the node name", () => {

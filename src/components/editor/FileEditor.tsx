@@ -13,11 +13,11 @@ export function FileEditor({ file }: FileEditorProps) {
   const dirtyFiles = useWorkspaceStore((state) => state.dirtyFiles);
   const draftContents = useWorkspaceStore((state) => state.draftContents);
   const updateDraftContent = useWorkspaceStore(
-    (state) => state.updateDraftContent
+    (state) => state.updateDraftContent,
   );
   const saveFile = useWorkspaceStore((state) => state.saveFile);
   const discardFileChanges = useWorkspaceStore(
-    (state) => state.discardFileChanges
+    (state) => state.discardFileChanges,
   );
   const selectFile = useWorkspaceStore((state) => state.selectFile);
   const openDialog = useWorkspaceStore((state) => state.openDialog);

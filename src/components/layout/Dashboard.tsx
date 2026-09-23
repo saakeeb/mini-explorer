@@ -17,12 +17,8 @@ import { Breadcrumb } from "@/components/ui/Breadcrumb";
 import { Sidebar } from "./Sidebar";
 
 export function Dashboard() {
-  const {
-    selectedFolder,
-    selectedFile,
-    folderContents,
-    isHydrated,
-  } = useWorkspace();
+  const { selectedFolder, selectedFile, folderContents, isHydrated } =
+    useWorkspace();
 
   const hydrate = useWorkspaceStore((state) => state.hydrate);
   const activeDialog = useWorkspaceStore((state) => state.activeDialog);
@@ -67,10 +63,10 @@ export function Dashboard() {
 
         <Toolbar />
         <div className="flex-1 flex min-h-0 overflow-hidden">
-
           <div
-            className={`flex-1 flex flex-col min-w-0 overflow-y-auto p-4 md:p-6 transition-all ${selectedFile ? "hidden lg:flex lg:w-1/2 lg:flex-none" : "flex"
-              }`}
+            className={`flex-1 flex flex-col min-w-0 overflow-y-auto p-4 md:p-6 transition-all ${
+              selectedFile ? "hidden lg:flex lg:w-1/2 lg:flex-none" : "flex"
+            }`}
           >
             {isFolderEmpty ? (
               <EmptyState

@@ -23,7 +23,11 @@ describe("Workspace Store", () => {
 
   it("createFile adds a file and opens it in editor", () => {
     const store = useWorkspaceStore.getState();
-    const created = store.createFile(WEBBLY_ID, "styles.css", "body { color: red; }");
+    const created = store.createFile(
+      WEBBLY_ID,
+      "styles.css",
+      "body { color: red; }",
+    );
     expect(created).toBe(true);
 
     const updatedState = useWorkspaceStore.getState();
@@ -40,7 +44,9 @@ describe("Workspace Store", () => {
 
     let state = useWorkspaceStore.getState();
     expect(state.dirtyFiles.has(NOTES_TXT_ID)).toBe(true);
-    expect(state.draftContents[NOTES_TXT_ID]).toBe("Updated draft content for test");
+    expect(state.draftContents[NOTES_TXT_ID]).toBe(
+      "Updated draft content for test",
+    );
 
     store.saveFile(NOTES_TXT_ID);
     state = useWorkspaceStore.getState();

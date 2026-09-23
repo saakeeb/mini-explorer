@@ -30,7 +30,7 @@ export function CreateModal({
   }, [root, parentId]);
 
   const [name, setName] = useState(
-    itemType === "file" ? "untitled.txt" : "New Folder"
+    itemType === "file" ? "untitled.txt" : "New Folder",
   );
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
@@ -89,15 +89,20 @@ export function CreateModal({
               if (error) setError(null);
             }}
             error={!!error}
-            placeholder={itemType === "folder" ? "e.g. Components" : "e.g. notes.txt"}
+            placeholder={
+              itemType === "folder" ? "e.g. Components" : "e.g. notes.txt"
+            }
           />
-          {error && (
-            <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>
-          )}
+          {error && <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>}
         </div>
 
         <div className="flex items-center justify-end gap-2 pt-2">
-          <Button type="button" variant="secondary" onClick={onClose} className="cursor-pointer">
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={onClose}
+            className="cursor-pointer"
+          >
             Cancel
           </Button>
           <Button type="submit" variant="primary" className="cursor-pointer">

@@ -1,11 +1,6 @@
 "use client";
 
-import {
-  RotateCcw,
-  X,
-  FolderPlus,
-  FilePlus,
-} from "lucide-react";
+import { RotateCcw, X, FolderPlus, FilePlus } from "lucide-react";
 import { TreeNode } from "../explorer/TreeNode";
 import Image from "next/image";
 import { useWorkspaceStore } from "@/store/workspaceStore";
@@ -31,8 +26,11 @@ export function Sidebar() {
       )}
 
       <aside
-        className={`fixed lg:static inset-y-0 left-0 z-40 w-[280px] bg-[#EFEFEA] border-r border-[#DFE2DB] flex flex-col shrink-0 transition-transform duration-200 lg:translate-x-0 ${isSidebarOpen ? "translate-x-0 shadow-lg lg:shadow-none" : "-translate-x-full"
-          }`}
+        className={`fixed lg:static inset-y-0 left-0 z-40 w-[280px] bg-[#EFEFEA] border-r border-[#DFE2DB] flex flex-col shrink-0 transition-transform duration-200 lg:translate-x-0 ${
+          isSidebarOpen
+            ? "translate-x-0 shadow-lg lg:shadow-none"
+            : "-translate-x-full"
+        }`}
       >
         <div className="h-12 px-4 border-b border-[#DFE2DB] flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">

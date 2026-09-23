@@ -50,7 +50,10 @@ export function loadWorkspace(): PersistedState {
       };
     }
   } catch (error) {
-    console.warn("Failed to load workspace from localStorage, using seed:", error);
+    console.warn(
+      "Failed to load workspace from localStorage, using seed:",
+      error,
+    );
   }
 
   return {

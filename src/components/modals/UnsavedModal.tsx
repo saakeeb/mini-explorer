@@ -21,7 +21,7 @@ export function UnsavedModal({
 }: UnsavedModalProps) {
   const saveFile = useWorkspaceStore((state) => state.saveFile);
   const discardFileChanges = useWorkspaceStore(
-    (state) => state.discardFileChanges
+    (state) => state.discardFileChanges,
   );
 
   const handleSaveAndProceed = () => {
@@ -44,7 +44,12 @@ export function UnsavedModal({
       description={`You have unsaved changes in "${fileName}". If you leave without saving, your edits will be discarded.`}
     >
       <div className="flex items-center justify-end gap-2 pt-2">
-        <Button type="button" variant="secondary" onClick={onClose} className="cursor-pointer">
+        <Button
+          type="button"
+          variant="secondary"
+          onClick={onClose}
+          className="cursor-pointer"
+        >
           Cancel
         </Button>
         <Button

@@ -10,7 +10,9 @@ const nextConfig: NextConfig = {
   productionBrowserSourceMaps: false,
   compiler: {
     removeConsole: isProd ? { exclude: ["error", "warn"] } : false,
-    reactRemoveProperties: isProd ? { properties: ["^data-testid$", "^data-test$"] } : false,
+    reactRemoveProperties: isProd
+      ? { properties: ["^data-testid$", "^data-test$"] }
+      : false,
   },
   reactCompiler: true,
   experimental: {
@@ -50,7 +52,8 @@ const nextConfig: NextConfig = {
           },
           {
             key: "Permissions-Policy",
-            value: "camera=(), microphone=(), geolocation=(), browsing-topics=()",
+            value:
+              "camera=(), microphone=(), geolocation=(), browsing-topics=()",
           },
           {
             key: "Strict-Transport-Security",

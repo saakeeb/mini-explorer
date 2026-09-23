@@ -85,13 +85,16 @@ export function RenameModal({ node, isOpen, onClose }: RenameModalProps) {
             }}
             error={!!error}
           />
-          {error && (
-            <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>
-          )}
+          {error && <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>}
         </div>
 
         <div className="flex items-center justify-end gap-2 pt-2">
-          <Button type="button" variant="secondary" onClick={onClose} className="cursor-pointer">
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={onClose}
+            className="cursor-pointer"
+          >
             Cancel
           </Button>
           <Button type="submit" variant="primary" className="cursor-pointer">

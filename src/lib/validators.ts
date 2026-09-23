@@ -10,7 +10,7 @@ export interface ValidationResult {
 export function validateNodeName(
   proposedName: string,
   parentFolder: WorkspaceNode,
-  currentExcludedNodeId?: string
+  currentExcludedNodeId?: string,
 ): ValidationResult {
   const trimmed = proposedName.trim();
 

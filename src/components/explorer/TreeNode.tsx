@@ -25,7 +25,9 @@ export const TreeNode = React.memo(function TreeNode({
 }: TreeNodeProps) {
   const selectedFolderId = useWorkspaceStore((state) => state.selectedFolderId);
   const selectedFileId = useWorkspaceStore((state) => state.selectedFileId);
-  const expandedFolderIds = useWorkspaceStore((state) => state.expandedFolderIds);
+  const expandedFolderIds = useWorkspaceStore(
+    (state) => state.expandedFolderIds,
+  );
   const dirtyFiles = useWorkspaceStore((state) => state.dirtyFiles);
 
   const selectFolder = useWorkspaceStore((state) => state.selectFolder);
@@ -99,10 +101,11 @@ export const TreeNode = React.memo(function TreeNode({
           }
         }}
         style={{ paddingLeft: `${Math.max(8, depth * 14 + 8)}px` }}
-        className={`group flex items-center justify-between h-7 pr-2 text-xs rounded-[6px] cursor-pointer transition-colors duration-100 ${isSelected
-          ? "bg-[#0F5C4B] text-white font-medium shadow-xs"
-          : "text-[#1C1D1A] hover:bg-[#F2F3F1]"
-          }`}
+        className={`group flex items-center justify-between h-7 pr-2 text-xs rounded-[6px] cursor-pointer transition-colors duration-100 ${
+          isSelected
+            ? "bg-[#0F5C4B] text-white font-medium shadow-xs"
+            : "text-[#1C1D1A] hover:bg-[#F2F3F1]"
+        }`}
       >
         <div className="flex items-center gap-1.5 min-w-0 flex-1">
           {/* Chevron expander for folders */}
@@ -111,12 +114,14 @@ export const TreeNode = React.memo(function TreeNode({
               onClick={handleToggle}
               tabIndex={-1}
               aria-label={isExpanded ? "Collapse" : "Expand"}
-              className={`p-0.5 rounded hover:bg-black/10 transition-transform duration-150 cursor-pointer ${isSelected ? "text-white/80 hover:text-white" : "text-[#8B8F86]"
-                }`}
+              className={`p-0.5 rounded hover:bg-black/10 transition-transform duration-150 cursor-pointer ${
+                isSelected ? "text-white/80 hover:text-white" : "text-[#8B8F86]"
+              }`}
             >
               <ChevronRight
-                className={`w-3.5 h-3.5 transition-transform duration-150 ${isExpanded ? "rotate-90" : ""
-                  }`}
+                className={`w-3.5 h-3.5 transition-transform duration-150 ${
+                  isExpanded ? "rotate-90" : ""
+                }`}
               />
             </button>
           ) : (
@@ -127,19 +132,22 @@ export const TreeNode = React.memo(function TreeNode({
           {isFolder ? (
             isExpanded ? (
               <FolderOpen
-                className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-white" : "text-[#C98A2E]"
-                  }`}
+                className={`w-3.5 h-3.5 shrink-0 ${
+                  isSelected ? "text-white" : "text-[#C98A2E]"
+                }`}
               />
             ) : (
               <Folder
-                className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-white" : "text-[#C98A2E]"
-                  }`}
+                className={`w-3.5 h-3.5 shrink-0 ${
+                  isSelected ? "text-white" : "text-[#C98A2E]"
+                }`}
               />
             )
           ) : (
             <FileText
-              className={`w-3.5 h-3.5 shrink-0 ${isSelected ? "text-white" : "text-[#5C5F58]"
-                }`}
+              className={`w-3.5 h-3.5 shrink-0 ${
+                isSelected ? "text-white" : "text-[#5C5F58]"
+              }`}
             />
           )}
 
@@ -150,16 +158,18 @@ export const TreeNode = React.memo(function TreeNode({
           {isDirty && (
             <span
               title="Unsaved changes"
-              className={`w-1.5 h-1.5 rounded-full shrink-0 ${isSelected ? "bg-white" : "bg-[#D97706]"
-                }`}
+              className={`w-1.5 h-1.5 rounded-full shrink-0 ${
+                isSelected ? "bg-white" : "bg-[#D97706]"
+              }`}
             />
           )}
         </div>
 
         {/* Quick action icons visible on hover or focus */}
         <div
-          className={`flex items-center gap-1 transition-opacity ${isHovered ? "opacity-100" : "opacity-0"
-            }`}
+          className={`flex items-center gap-1 transition-opacity ${
+            isHovered ? "opacity-100" : "opacity-0"
+          }`}
           onClick={(e) => e.stopPropagation()}
         >
           {isFolder && (
@@ -172,8 +182,11 @@ export const TreeNode = React.memo(function TreeNode({
                 })
               }
               title="New file in this folder"
-              className={`p-0.5 rounded hover:bg-black/10 cursor-pointer ${isSelected ? "text-white" : "text-[#8B8F86] hover:text-[#1C1D1A]"
-                }`}
+              className={`p-0.5 rounded hover:bg-black/10 cursor-pointer ${
+                isSelected
+                  ? "text-white"
+                  : "text-[#8B8F86] hover:text-[#1C1D1A]"
+              }`}
             >
               <Plus className="w-3 h-3" />
             </button>
@@ -189,8 +202,11 @@ export const TreeNode = React.memo(function TreeNode({
                   })
                 }
                 title="Rename"
-                className={`p-0.5 rounded hover:bg-black/10 cursor-pointer ${isSelected ? "text-white" : "text-[#8B8F86] hover:text-[#1C1D1A]"
-                  }`}
+                className={`p-0.5 rounded hover:bg-black/10 cursor-pointer ${
+                  isSelected
+                    ? "text-white"
+                    : "text-[#8B8F86] hover:text-[#1C1D1A]"
+                }`}
               >
                 <Pencil className="w-3 h-3" />
               </button>
@@ -202,8 +218,11 @@ export const TreeNode = React.memo(function TreeNode({
                   })
                 }
                 title="Delete"
-                className={`p-0.5 rounded hover:bg-black/10 cursor-pointer ${isSelected ? "text-white" : "text-[#8B8F86] hover:text-[#C24134]"
-                  }`}
+                className={`p-0.5 rounded hover:bg-black/10 cursor-pointer ${
+                  isSelected
+                    ? "text-white"
+                    : "text-[#8B8F86] hover:text-[#C24134]"
+                }`}
               >
                 <Trash2 className="w-3 h-3" />
               </button>
@@ -214,7 +233,10 @@ export const TreeNode = React.memo(function TreeNode({
 
       {/* Recursive children if expanded */}
       {isFolder && isExpanded && childNodes.length > 0 && (
-        <div role="group" className="border-l-[1px] border-[#DFE2DB] ml-3.5 my-0.5">
+        <div
+          role="group"
+          className="border-l-[1px] border-[#DFE2DB] ml-3.5 my-0.5"
+        >
           {childNodes.map((child) => (
             <TreeNode key={child.id} node={child} depth={depth + 1} />
           ))}

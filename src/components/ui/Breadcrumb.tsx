@@ -34,9 +34,7 @@ export function Breadcrumb() {
           return (
             <React.Fragment key={item.id}>
               {index > 0 && (
-                <span className="text-[#8B8F86] select-none">
-                  /
-                </span>
+                <span className="text-[#8B8F86] select-none">/</span>
               )}
 
               {isLast ? (

@@ -8,7 +8,9 @@ export function useWorkspace() {
   const root = useWorkspaceStore((state) => state.root);
   const selectedFolderId = useWorkspaceStore((state) => state.selectedFolderId);
   const selectedFileId = useWorkspaceStore((state) => state.selectedFileId);
-  const expandedFolderIds = useWorkspaceStore((state) => state.expandedFolderIds);
+  const expandedFolderIds = useWorkspaceStore(
+    (state) => state.expandedFolderIds,
+  );
   const dirtyFiles = useWorkspaceStore((state) => state.dirtyFiles);
   const draftContents = useWorkspaceStore((state) => state.draftContents);
   const isHydrated = useWorkspaceStore((state) => state.isHydrated);

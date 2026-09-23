@@ -2,7 +2,7 @@ import { BreadcrumbItem, WorkspaceNode } from "@/types/workspace";
 
 export function findNode(
   root: WorkspaceNode,
-  id: string
+  id: string,
 ): WorkspaceNode | null {
   if (root.id === id) {
     return root;
@@ -20,7 +20,7 @@ export function findNode(
 
 export function findParent(
   root: WorkspaceNode,
-  id: string
+  id: string,
 ): WorkspaceNode | null {
   if (root.id === id || !root.children) {
     return null;
@@ -37,10 +37,7 @@ export function findParent(
   return null;
 }
 
-export function getAncestors(
-  root: WorkspaceNode,
-  id: string
-): WorkspaceNode[] {
+export function getAncestors(root: WorkspaceNode, id: string): WorkspaceNode[] {
   const path: WorkspaceNode[] = [];
 
   function traverse(current: WorkspaceNode): boolean {
@@ -65,7 +62,7 @@ export function getAncestors(
 
 export function getBreadcrumbs(
   root: WorkspaceNode,
-  id: string
+  id: string,
 ): BreadcrumbItem[] {
   const ancestors = getAncestors(root, id);
   return ancestors.map((node, index) => ({
@@ -78,7 +75,7 @@ export function getBreadcrumbs(
 export function insertNode(
   root: WorkspaceNode,
   parentId: string,
-  node: WorkspaceNode
+  node: WorkspaceNode,
 ): WorkspaceNode {
   if (root.id === parentId) {
     if (root.type !== "folder") {
@@ -98,16 +95,14 @@ export function insertNode(
 
   return {
     ...root,
-    children: root.children.map((child) =>
-      insertNode(child, parentId, node)
-    ),
+    children: root.children.map((child) => insertNode(child, parentId, node)),
   };
 }
 
 export function renameNode(
   root: WorkspaceNode,
   id: string,
-  newName: string
+  newName: string,
 ): WorkspaceNode {
   if (root.id === id) {
     return {
@@ -127,10 +122,7 @@ export function renameNode(
   };
 }
 
-export function deleteNode(
-  root: WorkspaceNode,
-  id: string
-): WorkspaceNode {
+export function deleteNode(root: WorkspaceNode, id: string): WorkspaceNode {
   if (root.id === id) {
     // Root node deletion is not allowed
     return root;
@@ -151,7 +143,7 @@ export function deleteNode(
 export function updateFileContent(
   root: WorkspaceNode,
   id: string,
-  content: string
+  content: string,
 ): WorkspaceNode {
   if (root.id === id) {
     if (root.type !== "file") {
@@ -171,7 +163,7 @@ export function updateFileContent(
   return {
     ...root,
     children: root.children.map((child) =>
-      updateFileContent(child, id, content)
+      updateFileContent(child, id, content),
     ),
   };
 }

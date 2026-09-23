@@ -18,12 +18,12 @@ export function useSearch() {
 
   const folderResults = useMemo(
     () => results.filter((r) => r.type === "folder"),
-    [results]
+    [results],
   );
 
   const fileResults = useMemo(
     () => results.filter((r) => r.type === "file"),
-    [results]
+    [results],
   );
 
   return {

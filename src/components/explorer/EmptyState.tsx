@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { FolderPlus, FilePlus, Folder } from "lucide-react";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { Button } from "../ui/Button";
@@ -23,7 +22,8 @@ export function EmptyState({ folderId, folderName }: EmptyStateProps) {
         &quot;{folderName}&quot; is empty
       </h3>
       <p className="mt-1 text-xs text-[#5C5F58] max-w-xs leading-relaxed">
-        Create a new folder or text file to organize your work in this directory.
+        Create a new folder or text file to organize your work in this
+        directory.
       </p>
 
       <div className="flex items-center gap-2.5 mt-5">
