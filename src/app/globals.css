@@ -46,7 +46,3 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #8B8F86;
 }
-
-.tree-guide-line {
-  border-left: 1px solid #DFE2DB;
-}

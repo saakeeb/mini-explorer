@@ -215,7 +215,7 @@ export const TreeNode = React.memo(function TreeNode({
 
       {/* Recursive children if expanded */}
       {isFolder && isExpanded && childNodes.length > 0 && (
-        <div role="group" className="tree-guide-line ml-3.5 my-0.5">
+        <div role="group" className="border-l-[1px] border-[#DFE2DB] ml-3.5 my-0.5">
           {childNodes.map((child) => (
             <TreeNode key={child.id} node={child} depth={depth + 1} />
           ))}
