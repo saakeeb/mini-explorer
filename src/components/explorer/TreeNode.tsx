@@ -7,7 +7,6 @@ import {
   FolderOpen,
   FileText,
   Plus,
-  MoreVertical,
   Pencil,
   Trash2,
 } from "lucide-react";

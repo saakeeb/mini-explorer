@@ -28,22 +28,16 @@ export function RenameModal({ node, isOpen, onClose }: RenameModalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      setName(node.name);
-      setError(null);
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-          const dotIndex = node.name.lastIndexOf(".");
-          if (node.type === "file" && dotIndex > 0) {
-            inputRef.current.setSelectionRange(0, dotIndex);
-          } else {
-            inputRef.current.select();
-          }
-        }
-      }, 50);
+    if (inputRef.current) {
+      inputRef.current.focus();
+      const dotIndex = node.name.lastIndexOf(".");
+      if (node.type === "file" && dotIndex > 0) {
+        inputRef.current.setSelectionRange(0, dotIndex);
+      } else {
+        inputRef.current.select();
+      }
     }
-  }, [isOpen, node]);
+  }, [node]);
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();

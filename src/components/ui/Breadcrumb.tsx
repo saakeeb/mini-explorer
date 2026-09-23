@@ -1,7 +1,6 @@
 "use client";
 
 import * as React from "react";
-import { ChevronRight, Folder } from "lucide-react";
 import { useWorkspace } from "@/hooks/useWorkspace";
 import { useWorkspaceStore } from "@/store/workspaceStore";
 import { findNode } from "@/lib/tree";

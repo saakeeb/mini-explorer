@@ -112,6 +112,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "create" && (
         <CreateModal
+          key={`${activeDialog.type}-${activeDialog.itemType}-${activeDialog.parentId}`}
           isOpen={true}
           itemType={activeDialog.itemType}
           parentId={activeDialog.parentId}
@@ -121,6 +122,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "rename" && (
         <RenameModal
+          key={`${activeDialog.type}-${activeDialog.node.id}`}
           isOpen={true}
           node={activeDialog.node}
           onClose={closeDialog}
@@ -129,6 +131,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "delete" && (
         <DeleteModal
+          key={`${activeDialog.type}-${activeDialog.node.id}`}
           isOpen={true}
           node={activeDialog.node}
           onClose={closeDialog}
@@ -137,6 +140,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "unsaved" && (
         <UnsavedModal
+          key={`${activeDialog.type}-${activeDialog.fileId}`}
           isOpen={true}
           fileId={activeDialog.fileId}
           fileName={activeDialog.fileName}

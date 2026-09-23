@@ -29,26 +29,22 @@ export function CreateModal({
     return findNode(root, parentId);
   }, [root, parentId]);
 
-  const [name, setName] = useState("");
+  const [name, setName] = useState(
+    itemType === "file" ? "untitled.txt" : "New Folder"
+  );
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      setName(itemType === "file" ? "untitled.txt" : "New Folder");
-      setError(null);
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-          if (itemType === "file") {
-            inputRef.current.setSelectionRange(0, 8);
-          } else {
-            inputRef.current.select();
-          }
-        }
-      }, 50);
+    if (inputRef.current) {
+      inputRef.current.focus();
+      if (itemType === "file") {
+        inputRef.current.setSelectionRange(0, 8);
+      } else {
+        inputRef.current.select();
+      }
     }
-  }, [isOpen, itemType]);
+  }, [itemType]);
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
