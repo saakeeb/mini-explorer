@@ -1,14 +1,16 @@
 "use client";
 
 import { useMemo } from "react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { findNode, getBreadcrumbs } from "@/src/lib/tree";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { findNode, getBreadcrumbs } from "@/lib/tree";
 
 export function useWorkspace() {
   const root = useWorkspaceStore((state) => state.root);
   const selectedFolderId = useWorkspaceStore((state) => state.selectedFolderId);
   const selectedFileId = useWorkspaceStore((state) => state.selectedFileId);
-  const expandedFolderIds = useWorkspaceStore((state) => state.expandedFolderIds);
+  const expandedFolderIds = useWorkspaceStore(
+    (state) => state.expandedFolderIds,
+  );
   const dirtyFiles = useWorkspaceStore((state) => state.dirtyFiles);
   const draftContents = useWorkspaceStore((state) => state.draftContents);
   const isHydrated = useWorkspaceStore((state) => state.isHydrated);

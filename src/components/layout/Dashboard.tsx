@@ -1,28 +1,24 @@
 "use client";
 
 import { useEffect, useMemo, useState } from "react";
-import { Breadcrumb } from "../ui/Breadcrumb";
-import { EmptyState } from "../explorer/EmptyState";
-import { FolderList } from "../explorer/FolderList";
-import { FileList } from "../explorer/FileList";
-import { FileEditor } from "../editor/FileEditor";
-import { CreateModal } from "../modals/CreateModal";
-import { RenameModal } from "../modals/RenameModal";
-import { DeleteModal } from "../modals/DeleteModal";
-import { UnsavedModal } from "../modals/UnsavedModal";
-import { ToastContainer } from "../ui/Toast";
-import { Sidebar } from "./Sidebar";
+import { EmptyState } from "@/components/explorer/EmptyState";
+import { FolderList } from "@/components/explorer/FolderList";
+import { FileList } from "@/components/explorer/FileList";
+import { FileEditor } from "@/components/editor/FileEditor";
+import { CreateModal } from "@/components/modals/CreateModal";
+import { RenameModal } from "@/components/modals/RenameModal";
+import { DeleteModal } from "@/components/modals/DeleteModal";
+import { UnsavedModal } from "@/components/modals/UnsavedModal";
+import { ToastContainer } from "@/components/ui/Toast";
 import { Toolbar } from "./Toolbar";
-import { useWorkspace } from "@/src/hooks/useWorkspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { useWorkspace } from "@/hooks/useWorkspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { Breadcrumb } from "@/components/ui/Breadcrumb";
+import { Sidebar } from "./Sidebar";
 
 export function Dashboard() {
-  const {
-    selectedFolder,
-    selectedFile,
-    folderContents,
-    isHydrated,
-  } = useWorkspace();
+  const { selectedFolder, selectedFile, folderContents, isHydrated } =
+    useWorkspace();
 
   const hydrate = useWorkspaceStore((state) => state.hydrate);
   const activeDialog = useWorkspaceStore((state) => state.activeDialog);
@@ -67,10 +63,10 @@ export function Dashboard() {
 
         <Toolbar />
         <div className="flex-1 flex min-h-0 overflow-hidden">
-
           <div
-            className={`flex-1 flex flex-col min-w-0 overflow-y-auto p-4 md:p-6 transition-all ${selectedFile ? "hidden lg:flex lg:w-1/2 lg:flex-none" : "flex"
-              }`}
+            className={`flex-1 flex flex-col min-w-0 overflow-y-auto p-4 md:p-6 transition-all ${
+              selectedFile ? "hidden lg:flex lg:w-1/2 lg:flex-none" : "flex"
+            }`}
           >
             {isFolderEmpty ? (
               <EmptyState
@@ -112,6 +108,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "create" && (
         <CreateModal
+          key={`${activeDialog.type}-${activeDialog.itemType}-${activeDialog.parentId}`}
           isOpen={true}
           itemType={activeDialog.itemType}
           parentId={activeDialog.parentId}
@@ -121,6 +118,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "rename" && (
         <RenameModal
+          key={`${activeDialog.type}-${activeDialog.node.id}`}
           isOpen={true}
           node={activeDialog.node}
           onClose={closeDialog}
@@ -129,6 +127,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "delete" && (
         <DeleteModal
+          key={`${activeDialog.type}-${activeDialog.node.id}`}
           isOpen={true}
           node={activeDialog.node}
           onClose={closeDialog}
@@ -137,6 +136,7 @@ export function Dashboard() {
 
       {activeDialog?.type === "unsaved" && (
         <UnsavedModal
+          key={`${activeDialog.type}-${activeDialog.fileId}`}
           isOpen={true}
           fileId={activeDialog.fileId}
           fileName={activeDialog.fileName}

@@ -1,4 +1,4 @@
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 
 export interface ValidationResult {
   isValid: boolean;
@@ -10,7 +10,7 @@ export interface ValidationResult {
 export function validateNodeName(
   proposedName: string,
   parentFolder: WorkspaceNode,
-  currentExcludedNodeId?: string
+  currentExcludedNodeId?: string,
 ): ValidationResult {
   const trimmed = proposedName.trim();
 

@@ -1,10 +1,9 @@
 "use client";
 
 import * as React from "react";
-import { ChevronRight, Folder } from "lucide-react";
-import { useWorkspace } from "@/src/hooks/useWorkspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { findNode } from "@/src/lib/tree";
+import { useWorkspace } from "@/hooks/useWorkspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { findNode } from "@/lib/tree";
 
 export function Breadcrumb() {
   const { breadcrumbs, root } = useWorkspace();
@@ -35,9 +34,7 @@ export function Breadcrumb() {
           return (
             <React.Fragment key={item.id}>
               {index > 0 && (
-                <span className="text-[#8B8F86] select-none">
-                  /
-                </span>
+                <span className="text-[#8B8F86] select-none">/</span>
               )}
 
               {isLast ? (

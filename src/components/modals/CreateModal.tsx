@@ -1,9 +1,9 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { findNode } from "@/src/lib/tree";
-import { validateNodeName } from "@/src/lib/validators";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { findNode } from "@/lib/tree";
+import { validateNodeName } from "@/lib/validators";
 import { Modal } from "../ui/Modal";
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
@@ -29,26 +29,22 @@ export function CreateModal({
     return findNode(root, parentId);
   }, [root, parentId]);
 
-  const [name, setName] = useState("");
+  const [name, setName] = useState(
+    itemType === "file" ? "untitled.txt" : "New Folder",
+  );
   const [error, setError] = useState<string | null>(null);
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      setName(itemType === "file" ? "untitled.txt" : "New Folder");
-      setError(null);
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-          if (itemType === "file") {
-            inputRef.current.setSelectionRange(0, 8);
-          } else {
-            inputRef.current.select();
-          }
-        }
-      }, 50);
+    if (inputRef.current) {
+      inputRef.current.focus();
+      if (itemType === "file") {
+        inputRef.current.setSelectionRange(0, 8);
+      } else {
+        inputRef.current.select();
+      }
     }
-  }, [isOpen, itemType]);
+  }, [itemType]);
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -93,15 +89,20 @@ export function CreateModal({
               if (error) setError(null);
             }}
             error={!!error}
-            placeholder={itemType === "folder" ? "e.g. Components" : "e.g. notes.txt"}
+            placeholder={
+              itemType === "folder" ? "e.g. Components" : "e.g. notes.txt"
+            }
           />
-          {error && (
-            <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>
-          )}
+          {error && <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>}
         </div>
 
         <div className="flex items-center justify-end gap-2 pt-2">
-          <Button type="button" variant="secondary" onClick={onClose} className="cursor-pointer">
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={onClose}
+            className="cursor-pointer"
+          >
             Cancel
           </Button>
           <Button type="submit" variant="primary" className="cursor-pointer">

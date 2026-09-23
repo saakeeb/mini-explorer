@@ -1,8 +1,8 @@
-import { SearchResult, WorkspaceNode } from "@/src/types/workspace";
+import { SearchResult, WorkspaceNode } from "@/types/workspace";
 
 export function searchWorkspace(
   root: WorkspaceNode,
-  query: string
+  query: string,
 ): SearchResult[] {
   const trimmed = query.trim().toLowerCase();
   if (!trimmed) {

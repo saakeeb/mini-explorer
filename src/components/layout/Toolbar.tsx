@@ -1,15 +1,9 @@
 "use client";
 
-import {
-  FolderPlus,
-  FilePlus,
-  Pencil,
-  Trash2,
-  Menu,
-} from "lucide-react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { useWorkspace } from "@/src/hooks/useWorkspace";
-import { ROOT_ID } from "@/src/lib/constants";
+import { FolderPlus, FilePlus, Pencil, Trash2, Menu } from "lucide-react";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { useWorkspace } from "@/hooks/useWorkspace";
+import { ROOT_ID } from "@/lib/constants";
 import { Button } from "../ui/Button";
 import { SearchBar } from "./SearchBar";
 

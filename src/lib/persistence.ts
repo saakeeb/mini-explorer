@@ -1,5 +1,5 @@
 import { INITIAL_WORKSPACE_SEED, ROOT_ID, STORAGE_KEY } from "./constants";
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 
 export interface PersistedState {
   version: 1;
@@ -50,7 +50,10 @@ export function loadWorkspace(): PersistedState {
       };
     }
   } catch (error) {
-    console.warn("Failed to load workspace from localStorage, using seed:", error);
+    console.warn(
+      "Failed to load workspace from localStorage, using seed:",
+      error,
+    );
   }
 
   return {

@@ -1,7 +1,7 @@
 "use client";
 
 import { FileText, Save, X, Undo2 } from "lucide-react";
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 import { Button } from "../ui/Button";
 
 interface EditorHeaderProps {

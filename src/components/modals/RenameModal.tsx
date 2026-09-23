@@ -1,10 +1,10 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { findParent } from "@/src/lib/tree";
-import { validateNodeName } from "@/src/lib/validators";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { WorkspaceNode } from "@/types/workspace";
+import { findParent } from "@/lib/tree";
+import { validateNodeName } from "@/lib/validators";
 import { Modal } from "../ui/Modal";
 import { Input } from "../ui/Input";
 import { Button } from "../ui/Button";
@@ -28,22 +28,16 @@ export function RenameModal({ node, isOpen, onClose }: RenameModalProps) {
   const inputRef = useRef<HTMLInputElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      setName(node.name);
-      setError(null);
-      setTimeout(() => {
-        if (inputRef.current) {
-          inputRef.current.focus();
-          const dotIndex = node.name.lastIndexOf(".");
-          if (node.type === "file" && dotIndex > 0) {
-            inputRef.current.setSelectionRange(0, dotIndex);
-          } else {
-            inputRef.current.select();
-          }
-        }
-      }, 50);
+    if (inputRef.current) {
+      inputRef.current.focus();
+      const dotIndex = node.name.lastIndexOf(".");
+      if (node.type === "file" && dotIndex > 0) {
+        inputRef.current.setSelectionRange(0, dotIndex);
+      } else {
+        inputRef.current.select();
+      }
     }
-  }, [isOpen, node]);
+  }, [node]);
 
   const handleSubmit = (e?: React.FormEvent) => {
     if (e) e.preventDefault();
@@ -91,13 +85,16 @@ export function RenameModal({ node, isOpen, onClose }: RenameModalProps) {
             }}
             error={!!error}
           />
-          {error && (
-            <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>
-          )}
+          {error && <p className="mt-1.5 text-xs text-[#C24134]">{error}</p>}
         </div>
 
         <div className="flex items-center justify-end gap-2 pt-2">
-          <Button type="button" variant="secondary" onClick={onClose} className="cursor-pointer">
+          <Button
+            type="button"
+            variant="secondary"
+            onClick={onClose}
+            className="cursor-pointer"
+          >
             Cancel
           </Button>
           <Button type="submit" variant="primary" className="cursor-pointer">

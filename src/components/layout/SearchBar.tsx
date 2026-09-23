@@ -2,7 +2,7 @@
 
 import { useEffect, useRef } from "react";
 import { Search, X, Folder, FileText } from "lucide-react";
-import { useSearch } from "@/src/hooks/useSearch";
+import { useSearch } from "@/hooks/useSearch";
 
 export function SearchBar() {
   const {
@@ -54,7 +54,9 @@ export function SearchBar() {
 
   const highlightMatch = (text: string, query: string) => {
     if (!query.trim()) return text;
-    const parts = text.split(new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"));
+    const parts = text.split(
+      new RegExp(`(${query.replace(/[.*+?^${}()|[\]\\]/g, "\\$&")})`, "gi"),
+    );
     return (
       <>
         {parts.map((part, i) =>
@@ -67,7 +69,7 @@ export function SearchBar() {
             </mark>
           ) : (
             <span key={i}>{part}</span>
-          )
+          ),
         )}
       </>
     );
@@ -102,7 +104,9 @@ export function SearchBar() {
             >
               <X className="w-3 h-3 cursor-pointer" />
             </button>
-          ) : ''}
+          ) : (
+            ""
+          )}
         </div>
       </div>
 

@@ -1,14 +1,9 @@
 "use client";
 
-import * as React from "react";
-import {
-  Folder,
-  FileText,
-  Pencil,
-  Trash2,
-} from "lucide-react";
-import { WorkspaceNode } from "@/src/types/workspace";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { useMemo } from "react";
+import { Folder, FileText, Pencil, Trash2 } from "lucide-react";
+import { WorkspaceNode } from "@/types/workspace";
+import { useWorkspaceStore } from "@/store/workspaceStore";
 
 interface ExplorerItemProps {
   node: WorkspaceNode;
@@ -29,7 +24,7 @@ export function ExplorerItem({
   const isFolder = node.type === "folder";
   const isDirty = !isFolder && dirtyFiles.has(node.id);
 
-  const metadataText = React.useMemo(() => {
+  const metadataText = useMemo(() => {
     if (isFolder) {
       const count = node.children?.length ?? 0;
       return `${count} item${count === 1 ? "" : "s"}`;
@@ -50,10 +45,11 @@ export function ExplorerItem({
           onOpen();
         }
       }}
-      className={`group flex items-center justify-between h-11 px-3 rounded-[8px] border cursor-pointer select-none transition-colors duration-100 ${isSelected
-        ? "bg-[#F2F3F1] border-[#C9CEC4] shadow-2xs"
-        : "bg-[#FFFFFF] border-[#DFE2DB] hover:bg-[#F2F3F1] hover:border-[#C9CEC4]"
-        }`}
+      className={`group flex items-center justify-between h-11 px-3 rounded-[8px] border cursor-pointer select-none transition-colors duration-100 ${
+        isSelected
+          ? "bg-[#F2F3F1] border-[#C9CEC4] shadow-2xs"
+          : "bg-[#FFFFFF] border-[#DFE2DB] hover:bg-[#F2F3F1] hover:border-[#C9CEC4]"
+      }`}
     >
       <div className="flex items-center gap-3 min-w-0 flex-1">
         {isFolder ? (

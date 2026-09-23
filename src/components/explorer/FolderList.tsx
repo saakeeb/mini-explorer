@@ -1,7 +1,6 @@
 "use client";
 
-import * as React from "react";
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 import { ExplorerItem } from "./ExplorerItem";
 
 interface FolderListProps {

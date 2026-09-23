@@ -1,6 +1,6 @@
 "use client";
 
-import { WorkspaceNode } from "@/src/types/workspace";
+import { WorkspaceNode } from "@/types/workspace";
 import { ExplorerItem } from "./ExplorerItem";
 
 interface FileListProps {

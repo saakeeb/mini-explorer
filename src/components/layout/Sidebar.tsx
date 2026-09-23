@@ -1,14 +1,10 @@
 "use client";
 
-import {
-  RotateCcw,
-  X,
-  FolderPlus,
-  FilePlus,
-} from "lucide-react";
+import { RotateCcw, X, FolderPlus, FilePlus } from "lucide-react";
 import { TreeNode } from "../explorer/TreeNode";
-import { useWorkspaceStore } from "@/src/store/workspaceStore";
-import { ROOT_ID } from "@/src/lib/constants";
+import Image from "next/image";
+import { useWorkspaceStore } from "@/store/workspaceStore";
+import { ROOT_ID } from "@/lib/constants";
 
 export function Sidebar() {
   const root = useWorkspaceStore((state) => state.root);
@@ -29,17 +25,24 @@ export function Sidebar() {
         />
       )}
 
-      {/* Sidebar container */}
       <aside
-        className={`fixed lg:static inset-y-0 left-0 z-40 w-[280px] bg-[#EFEFEA] border-r border-[#DFE2DB] flex flex-col shrink-0 transition-transform duration-200 lg:translate-x-0 ${isSidebarOpen ? "translate-x-0 shadow-lg lg:shadow-none" : "-translate-x-full"
-          }`}
+        className={`fixed lg:static inset-y-0 left-0 z-40 w-[280px] bg-[#EFEFEA] border-r border-[#DFE2DB] flex flex-col shrink-0 transition-transform duration-200 lg:translate-x-0 ${
+          isSidebarOpen
+            ? "translate-x-0 shadow-lg lg:shadow-none"
+            : "-translate-x-full"
+        }`}
       >
-        {/* Sidebar Header */}
         <div className="h-12 px-4 border-b border-[#DFE2DB] flex items-center justify-between shrink-0">
           <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded bg-[#0F5C4B] text-white flex items-center justify-center font-bold text-xs shadow-2xs">
-              W
-            </div>
+            <Image
+              src="/webbly.png"
+              alt="Webbly Mini Explorer Workspace"
+              width={20}
+              height={20}
+              className="rounded shadow-2xs"
+              priority
+              sizes="20px"
+            />
             <h2 className="text-xs font-semibold tracking-tight text-[#1C1D1A] uppercase">
               Workspace
             </h2>
@@ -60,7 +63,6 @@ export function Sidebar() {
               <RotateCcw className="w-3.5 h-3.5" />
             </button>
 
-            {/* Mobile close button */}
             <button
               onClick={() => setSidebarOpen(false)}
               aria-label="Close sidebar"

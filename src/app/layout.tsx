@@ -38,7 +38,10 @@ export default function RootLayout({
       lang="en"
       className={`${fraunces.variable} ${ibmPlexSans.variable} ${jetbrainsMono.variable} h-full antialiased`}
     >
-      <body className="h-full flex flex-col overflow-hidden select-none bg-[#F7F7F5] text-[#1C1D1A]" suppressHydrationWarning>
+      <body
+        className="h-full flex flex-col overflow-hidden select-none bg-[#F7F7F5] text-[#1C1D1A]"
+        suppressHydrationWarning
+      >
         {children}
       </body>
     </html>
