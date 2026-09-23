@@ -1,6 +1,5 @@
 "use client";
 
-import * as React from "react";
 import { WorkspaceNode } from "@/types/workspace";
 import { ExplorerItem } from "./ExplorerItem";
 

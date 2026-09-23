@@ -1,6 +1,6 @@
 "use client";
 
-import * as React from "react";
+import React, { memo, useState } from "react";
 import {
   ChevronRight,
   Folder,
@@ -19,7 +19,7 @@ interface TreeNodeProps {
   depth?: number;
 }
 
-export const TreeNode = React.memo(function TreeNode({
+export const TreeNode = memo(function TreeNode({
   node,
   depth = 0,
 }: TreeNodeProps) {
@@ -43,7 +43,7 @@ export const TreeNode = React.memo(function TreeNode({
   const isDirty = !isFolder && dirtyFiles.has(node.id);
   const isRoot = node.id === ROOT_ID;
 
-  const [isHovered, setIsHovered] = React.useState(false);
+  const [isHovered, setIsHovered] = useState(false);
 
   const handleClick = (e: React.MouseEvent) => {
     e.stopPropagation();
