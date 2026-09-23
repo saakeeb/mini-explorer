@@ -1,38 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Mini Workspace Explorer
 
-## Getting Started
+Mini Workspace Explorer, a browser-based file manager where users can create, navigate, search, edit, rename, and delete folders and text files.
 
-First, run the development server:
+---
+
+## How to run the project
+
+Make sure you have Node.js (version 22 or newer) and pnpm installed on your computer.
+
+### 1. Install dependencies
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+pnpm install
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 2. Start the local development server
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+```bash
+pnpm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-## Learn More
+### 3. Run the automated tests
 
-To learn more about Next.js, take a look at the following resources:
+```bash
+pnpm run test
+```
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+### 4. Create a production build
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+```bash
+pnpm run build
+```
 
-## Deploy on Vercel
+---
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Project structure
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+All application source code lives inside the `src` folder:
 
-# mini-explorer
+```text
+src/
+├── app/
+├── components/
+│   ├── layout/
+│   ├── explorer/
+│   ├── editor/
+│   ├── modals/
+│   └── ui/
+├── store/
+│   ├── slices/
+│   ├── types.ts
+│   └── workspaceStore.ts
+├── hooks/
+├── lib/
+└── types/
+```
+
+---
+
+## State management approach
+
+I have use Zustand to manage state.
+
+- **Split into slices**: Put everything state differently to make it readable.
+- **Draft edits before saving**: When user type in the text editor, text is held in a temporary draft state.
+
+---
+
+## File-system data structure
+
+The entire workspace is modeled as a recursive tree. Each item in the tree is a `WorkspaceNode`:
+
+```ts
+export type NodeType = "folder" | "file";
+
+export interface WorkspaceNode {
+  id: string;
+  name: string;
+  type: NodeType;
+  parentId: string | null;
+  children?: WorkspaceNode[];
+  content?: string;
+  createdAt: string;
+  updatedAt: string;
+}
+```
+
+- **Folders** have an array of `children`.
+- **Files** have a `content` string and no children.
+- **The Root folder** sits at the top level with `parentId: null`.
+
+---
+
+## Important implementation decisions
+
+- **Pure immutable tree updates**: Whenever user add, rename, or delete something, I try not to change the original tree. Instead, I return a brand new tree object.
+- **No duplicate names in the same folder**: User cannot create or rename a file or folder to a name that already exists in that same directory.
+- **Unsaved changes guard**: If any user edit a file and try to switch to another file or folder, a modal appears if they want to save or discard their changes first.
+- **Safe cascading deletes**: When user delete a folder, it deletes everything inside it.
+- **Local storage persistence**: The tree is saved to your browser local storage.
