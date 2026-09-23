@@ -1,4 +1,4 @@
-import { SearchResult, WorkspaceNode } from "@/types/workspace";
+import { SearchResult, WorkspaceNode } from "@/src/types/workspace";
 
 export function searchWorkspace(
   root: WorkspaceNode,

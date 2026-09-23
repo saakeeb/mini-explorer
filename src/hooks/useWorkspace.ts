@@ -1,8 +1,8 @@
 "use client";
 
 import { useMemo } from "react";
-import { useWorkspaceStore } from "@/store/workspace-store";
-import { findNode, getBreadcrumbs } from "@/lib/tree";
+import { useWorkspaceStore } from "@/src/store/workspaceStore";
+import { findNode, getBreadcrumbs } from "@/src/lib/tree";
 
 export function useWorkspace() {
   const root = useWorkspaceStore((state) => state.root);
@@ -27,7 +27,6 @@ export function useWorkspace() {
 
   const folderContents = useMemo(() => {
     const children = selectedFolder.children ?? [];
-    // Folders first, then files, sorted alphabetically
     return [...children].sort((a, b) => {
       if (a.type !== b.type) {
         return a.type === "folder" ? -1 : 1;

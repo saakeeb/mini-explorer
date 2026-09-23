@@ -1,6 +1,6 @@
 import test from "node:test";
 import assert from "node:assert/strict";
-import { useWorkspaceStore } from "../../store/workspace-store";
+import { useWorkspaceStore } from "../../store/workspaceStore";
 import { ROOT_ID, WEBBLY_ID, NOTES_TXT_ID } from "../constants";
 import { findNode } from "../tree";
 

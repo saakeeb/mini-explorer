@@ -1,4 +1,4 @@
-import { BreadcrumbItem, WorkspaceNode } from "@/types/workspace";
+import { BreadcrumbItem, WorkspaceNode } from "@/src/types/workspace";
 
 export function findNode(
   root: WorkspaceNode,

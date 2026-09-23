@@ -1,5 +1,5 @@
 import { INITIAL_WORKSPACE_SEED, ROOT_ID, STORAGE_KEY } from "./constants";
-import { WorkspaceNode } from "@/types/workspace";
+import { WorkspaceNode } from "@/src/types/workspace";
 
 export interface PersistedState {
   version: 1;
